@@ -16,8 +16,7 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; Jump to a definition in the current file. 
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
-(global-set-key (kbd "C-.") 'imenu-anywhere)
+(global-set-key (kbd "C-x C-i") 'imenu-anywhere)
 
 ;; File finding
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
@@ -26,7 +25,8 @@
 ;; Browse the kill ring
 (global-set-key (kbd "C-x C-y") 'browse-kill-ring)
 
-;; Trigger C++ auto completion
+;; Trigger auto completion
+(global-set-key (kbd "C-.") 'auto-complete)
 (global-set-key (kbd "C-,") 'ac-complete-clang)
 
 (provide 'key-bindings)
