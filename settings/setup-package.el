@@ -11,6 +11,7 @@
 
 (defvar pyericz/packages 
   '(auto-complete
+    auto-complete-clang
     markdown-mode
     lua-mode
     switch-window
@@ -29,6 +30,9 @@
     dired-details
     find-file-in-project
     multiple-cursors
+    helm-core
+    imenu-anywhere
+    yasnippet
   )
   "Default packages")
 

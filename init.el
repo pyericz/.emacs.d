@@ -75,6 +75,14 @@
 ;; Multiple cursors
 (require 'multiple-cursors)
 
+;; Snippet
+(require 'setup-yasnippet)
+
+;; C++ auto complete
+(require 'auto-complete-clang)
+(setq ac-auto-start nil)
+(setq ac-quick-help-delay 0.5)
+
 ;; Browse kill ring
 (require 'browse-kill-ring)
 (setq browse-kill-ring-quit-action 'save-and-restore)

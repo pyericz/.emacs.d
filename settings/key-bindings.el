@@ -17,6 +17,7 @@
 
 ;; Jump to a definition in the current file. 
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
+(global-set-key (kbd "C-.") 'imenu-anywhere)
 
 ;; File finding
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
@@ -24,5 +25,8 @@
 
 ;; Browse the kill ring
 (global-set-key (kbd "C-x C-y") 'browse-kill-ring)
+
+;; Trigger C++ auto completion
+(global-set-key (kbd "C-,") 'ac-complete-clang)
 
 (provide 'key-bindings)
