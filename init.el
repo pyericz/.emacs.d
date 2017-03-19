@@ -1,10 +1,20 @@
 
 ;; Turn off mouse interface early in startup to avoid momentary display
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
+
+;; Set Path
+(setenv "PATH" (concat "/usr/local/bin:/opt/local/bin:/usr/bin:/bin" (getenv "PATH")))
 
 ;; Set path to dependencies
 (setq site-lisp-dir
@@ -78,6 +88,24 @@
 ;; Snippet
 (require 'setup-yasnippet)
 
+;; Org
+(require 'setup-org)
+
+;; Fold
+(require 'fold-this)
+(add-hook 'prog-mode-hook
+          (lambda () (yafolding-mode)))
+
+;; guide-key
+(require 'guide-key)
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8" "C-x +"))
+(guide-key-mode 1)
+(setq guide-key/recursive-key-sequence-flag t)
+(setq guide-key/popup-window-position 'bottom)
+
+;; Dired
+(require 'setup-dired)
+
 ;; C++ auto complete
 (require 'auto-complete-clang)
 (setq ac-auto-start nil)
@@ -94,10 +122,25 @@
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
+;; Set mouse wheel scroll amount
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+
 ;;; Set tab with to 4
-(setq tab-width 4)
-(setq c-basic-offset 4)
+(defun my-custom-settings-fn ()
+  (setq indent-tabs-mode t)
+  (setq tab-stop-list (number-sequence 4 200 4))
+  (setq tab-width 4)
+  (setq indent-line-function 'insert-tab))
+(add-hook 'text-mode-hook 'my-custom-settings-fn)
+(setq-default tab-width 4)
+(setq-default c-basic-offset 4)
 (setq lua-indent-level 4)
+;; nxml-mode
+(setq 
+    nxml-child-indent 4
+    nxml-attribute-indent 4
+    nxml-slash-auto-complete-flag t)
 
 ;; Auto complete
 (global-auto-complete-mode t)

@@ -16,3 +16,8 @@ site-lisp/adventur-mode
 /var/
 /.sx/
 /ensime/
+.mc-lists.el
+ac-comphist.dat
+history
+ido.last
+recentf

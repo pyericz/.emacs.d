@@ -33,6 +33,8 @@
     helm-core
     imenu-anywhere
     yasnippet
+    guide-key
+    yafolding
   )
   "Default packages")
 
