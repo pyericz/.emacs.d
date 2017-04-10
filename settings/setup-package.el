@@ -1,13 +1,10 @@
-(load "package")
-(package-initialize)
+(require 'package) ;; You might already have this line
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(setq package-archive-enable-alist '(("melpa" deft magit)))
-
-
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
 
 (defvar pyericz/packages 
   '(auto-complete
@@ -35,6 +32,7 @@
     yasnippet
     guide-key
     yafolding
+    icicles
   )
   "Default packages")
 
