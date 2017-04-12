@@ -39,4 +39,7 @@
 (global-set-key (kbd "C-c C-F") 'fold-this)
 (global-set-key (kbd "C-c M-f") 'fold-this-unfold-all)
 
+;; pop-tag-mark
+(global-set-key (kbd "M-*") 'pop-tag-mark)
+
 (provide 'key-bindings)
