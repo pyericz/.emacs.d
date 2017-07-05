@@ -42,4 +42,8 @@
 ;; pop-tag-mark
 (global-set-key (kbd "M-*") 'pop-tag-mark)
 
+(global-set-key (kbd "M-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "M-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "M-<down>") 'shrink-window)
+(global-set-key (kbd "M-<up>") 'enlarge-window)
 (provide 'key-bindings)
